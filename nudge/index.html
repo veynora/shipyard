@@ -34,6 +34,7 @@
   }
   .btn:hover { filter: brightness(1.08); }
   .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .meta { margin-top: 14px; color: var(--muted); font-size: 0.9rem; }
   section { padding: 36px 0; border-top: 1px solid var(--line); }
   h2 { font-size: 1.4rem; margin: 0 0 16px; letter-spacing: -0.01em; }
@@ -64,8 +65,8 @@
     <img class="logo" src="icon.png" width="96" height="96" alt="Nudge icon">
     <h1>Nudge</h1>
     <p class="tag">A reminder you can't miss and don't mind. An animated 3D character walks into the window you're working in and tells you what to do.</p>
-    <a class="btn" href="Nudge-1.0.0.dmg" download>Download for macOS</a>
-    <p class="meta">Version 1.0.0 &middot; 51&nbsp;MB &middot; macOS 11 or later &middot; Apple Silicon (M1 and newer)</p>
+    <div class="btns"><a class="btn" href="Nudge-1.0.0.dmg" download>Download for macOS</a> <a class="btn" href="Nudge-1.0.0.exe" download>Download for Windows</a></div>
+    <p class="meta">Version 1.0.0 &middot; macOS: 51&nbsp;MB, macOS 11 or later, Apple Silicon (M1 and newer) &middot; Windows: 38&nbsp;MB, Windows 10/11 (64-bit)</p>
   </header>
 
   <section>
@@ -76,7 +77,7 @@
       <div class="card"><h3>Characters with personality</h3><p>Pick a character and a voice style (calm coach, sarcastic friend, sports commentator, movie hero). Reminders can be spoken aloud.</p></div>
       <div class="card"><h3>Easy to add things</h3><p>Type a reminder in everyday words, set it to repeat, or paste a messy brain dump and let Nudge pull out the tasks and times.</p></div>
       <div class="card"><h3>Calendar import</h3><p>Bring in events from Google Calendar or an ICS calendar link.</p></div>
-      <div class="card"><h3>Quiet and private</h3><p>Lives in the menu bar, works offline, and keeps your reminders on your Mac in <code>~/.nudge/</code>.</p></div>
+      <div class="card"><h3>Quiet and private</h3><p>Lives in the menu bar (Mac) or system tray (Windows), works offline, and keeps your reminders on your computer in <code>~/.nudge/</code> (<code>%USERPROFILE%\.nudge</code> on Windows).</p></div>
     </div>
   </section>
 
@@ -89,7 +90,7 @@
   </section>
 
   <section>
-    <h2>Install</h2>
+    <h2>Install on macOS</h2>
     <ol class="steps">
       <li>Download <strong>Nudge-1.0.0.dmg</strong> and open it.</li>
       <li>Drag <strong>Nudge</strong> into the <strong>Applications</strong> folder.</li>
@@ -99,18 +100,29 @@
       </li>
       <li>Look for the <strong>N</strong> in your menu bar. Open it to add your first reminder.</li>
     </ol>
-    <p class="note" style="margin-top:18px"><strong>Optional AI wording:</strong> open <em>Settings</em> from the menu bar and add an Anthropic API key to get freshly written reminder messages. Without a key, Nudge uses its built-in wording.</p>
+    <h2 style="margin-top:36px">Install on Windows</h2>
+    <ol class="steps">
+      <li>Download <strong>Nudge-1.0.0.exe</strong> and run it.</li>
+      <li>This build isn't code-signed yet, so Windows SmartScreen may say "Windows protected your PC". Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+      <li>Choose whether to add a desktop shortcut and start Nudge when you log in, then finish the installer.</li>
+      <li>Nudge needs the Microsoft Edge <strong>WebView2 Runtime</strong> for its 3D character. It's included with current Windows 10 and 11; the installer tells you if it's missing.</li>
+      <li>Look for the <strong>N</strong> in the system tray (bottom right). Open it to add your first reminder.</li>
+    </ol>
+    <p class="note" style="margin-top:18px"><strong>Optional AI wording:</strong> open <em>Settings</em> from the menu bar or tray icon and add an Anthropic API key to get freshly written reminder messages. Without a key, Nudge uses its built-in wording.</p>
   </section>
 
   <section>
     <h2>Details</h2>
     <dl>
       <dt>Version</dt><dd>1.0.0</dd>
-      <dt>File</dt><dd><a href="Nudge-1.0.0.dmg">Nudge-1.0.0.dmg</a> (51&nbsp;MB)</dd>
-      <dt>Requires</dt><dd>macOS 11 or later, Apple Silicon. Intel Macs aren't supported in this build.</dd>
-      <dt>SHA-256</dt><dd><code>39bebee3e57b20a86f43ddfc77053d16433e264650f586829bb2a6d959212b86</code></dd>
-      <dt>Verify</dt><dd><code>shasum -a 256 ~/Downloads/Nudge-1.0.0.dmg</code></dd>
-      <dt>Your data</dt><dd>Stored locally in <code>~/.nudge/</code>. Delete that folder to remove everything.</dd>
+      <dt>macOS file</dt><dd><a href="Nudge-1.0.0.dmg">Nudge-1.0.0.dmg</a> (51&nbsp;MB)</dd>
+      <dt>Windows file</dt><dd><a href="Nudge-1.0.0.exe">Nudge-1.0.0.exe</a> (38&nbsp;MB)</dd>
+      <dt>Requires</dt><dd>macOS 11 or later, Apple Silicon (Intel Macs aren't supported in this build); or Windows 10/11 64-bit with the WebView2 Runtime.</dd>
+      <dt>SHA-256 (macOS)</dt><dd><code>39bebee3e57b20a86f43ddfc77053d16433e264650f586829bb2a6d959212b86</code></dd>
+      <dt>Verify (macOS)</dt><dd><code>shasum -a 256 ~/Downloads/Nudge-1.0.0.dmg</code></dd>
+      <dt>SHA-256 (Windows)</dt><dd><code>bc1889e8b133d2553642be24a3070bac28676d90dab03e72fe296f8009d78996</code></dd>
+      <dt>Verify (Windows)</dt><dd><code>Get-FileHash $HOME\Downloads\Nudge-1.0.0.exe -Algorithm SHA256</code></dd>
+      <dt>Your data</dt><dd>Stored locally in <code>~/.nudge/</code> (<code>%USERPROFILE%\.nudge</code> on Windows). Delete that folder to remove everything.</dd>
     </dl>
   </section>
 
