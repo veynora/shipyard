@@ -19,7 +19,7 @@ A reminder companion for your Mac and Windows PC. When a reminder is due, an ani
 **Features**
 - Reminder appears where you are, without stealing focus
 - One-step resolve: done, snooze, or type a phrase like "after lunch" or "friday 5pm"
-- Eight characters (Aria, Celeste, Elara, Luna, Nova, Raven, Scarlet, Valkyrie) and your own `.glb` models
+- Eight characters (Aria, Celeste, Elara, Luna, Nova, Raven, Scarlet, Valkyrie)
 - Personality voices, optional spoken reminders, recurring reminders, brain-dump entry
 - Google Calendar and ICS import
 - Menu-bar (Mac) / system-tray (Windows) app that works offline; data stays on your computer in `~/.nudge/` (`%USERPROFILE%\.nudge` on Windows)
