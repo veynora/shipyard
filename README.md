@@ -8,7 +8,7 @@ Site: <https://veynora.github.io/shipyard/> (GitHub Pages, served from the `main
 
 | App | Platform | Version | Download page |
 |---|---|---|---|
-| **Nudge** | macOS 11+ (Apple Silicon, Intel), Windows 10/11 (x64, ARM64) | 2.0.0 | <https://veynora.github.io/shipyard/nudge/> |
+| **Nudge** | macOS 11+ (Apple Silicon, Intel), Windows 10/11 (x64, ARM64) | 2.3.0 | <https://veynora.github.io/shipyard/nudge/> |
 
 ## Nudge
 
@@ -25,22 +25,22 @@ A reminder companion for your Mac and Windows PC. When a reminder is due, an ani
 - Menu-bar (Mac) / system-tray (Windows) app that works offline; data stays on your computer in `~/.nudge/` (`%USERPROFILE%\.nudge` on Windows)
 - Optional AI-written wording with your own Anthropic API key (Settings)
 
-**Download (2.0.0)**
+**Download (2.3.0)**
 
 | Platform | File | Size | Checksum |
 |---|---|---|---|
-| macOS, Apple Silicon | [`nudge/Nudge-2.0.0-arm64.dmg`](nudge/Nudge-2.0.0-arm64.dmg) | 24 MB | [`.sha256`](nudge/Nudge-2.0.0-arm64.dmg.sha256) |
-| macOS, Intel | [`nudge/Nudge-2.0.0-x64.dmg`](nudge/Nudge-2.0.0-x64.dmg) | 24 MB | [`.sha256`](nudge/Nudge-2.0.0-x64.dmg.sha256) |
-| Windows, 64-bit | [`nudge/Nudge-2.0.0-x64.exe`](nudge/Nudge-2.0.0-x64.exe) | 20 MB | [`.sha256`](nudge/Nudge-2.0.0-x64.exe.sha256) |
-| Windows, ARM64 | [`nudge/Nudge-2.0.0-arm64.exe`](nudge/Nudge-2.0.0-arm64.exe) | 19 MB | [`.sha256`](nudge/Nudge-2.0.0-arm64.exe.sha256) |
+| macOS, Apple Silicon | [`nudge/Nudge-2.3.0-arm64.dmg`](nudge/Nudge-2.3.0-arm64.dmg) | 24 MB | [`.sha256`](nudge/Nudge-2.3.0-arm64.dmg.sha256) |
+| macOS, Intel | [`nudge/Nudge-2.3.0-x64.dmg`](nudge/Nudge-2.3.0-x64.dmg) | 24 MB | [`.sha256`](nudge/Nudge-2.3.0-x64.dmg.sha256) |
+| Windows, 64-bit | [`nudge/Nudge-2.3.0-x64.exe`](nudge/Nudge-2.3.0-x64.exe) | 20 MB | [`.sha256`](nudge/Nudge-2.3.0-x64.exe.sha256) |
+| Windows, ARM64 | [`nudge/Nudge-2.3.0-arm64.exe`](nudge/Nudge-2.3.0-arm64.exe) | 20 MB | [`.sha256`](nudge/Nudge-2.3.0-arm64.exe.sha256) |
 
 Previous: 1.0.0 (Python build), [`.dmg`](nudge/Nudge-1.0.0.dmg) and [`.exe`](nudge/Nudge-1.0.0.exe).
 
 ```sh
-shasum -a 256 ~/Downloads/Nudge-2.0.0-arm64.dmg   # must match the .sha256 file
+shasum -a 256 ~/Downloads/Nudge-2.3.0-arm64.dmg   # must match the .sha256 file
 ```
 ```powershell
-Get-FileHash $HOME\Downloads\Nudge-2.0.0-x64.exe -Algorithm SHA256   # must match the .sha256 file
+Get-FileHash $HOME\Downloads\Nudge-2.3.0-x64.exe -Algorithm SHA256   # must match the .sha256 file
 ```
 
 **Install (macOS)**
@@ -53,7 +53,7 @@ Get-FileHash $HOME\Downloads\Nudge-2.0.0-x64.exe -Algorithm SHA256   # must matc
 4. Look for the **N** in the menu bar.
 
 **Install (Windows)**
-1. Run `Nudge-2.0.0-x64.exe` (`-arm64` on ARM PCs). The build is not code-signed yet, so if SmartScreen says "Windows protected your PC", click **More info** → **Run anyway**.
+1. Run `Nudge-2.3.0-x64.exe` (`-arm64` on ARM PCs). The build is not code-signed yet, so if SmartScreen says "Windows protected your PC", click **More info** → **Run anyway**.
 2. Finish the installer (per-user, no administrator rights needed).
 3. Needs the Edge **WebView2 Runtime** (included with current Windows 10/11; the installer downloads it if missing).
 4. Look for the **N** in the system tray.
@@ -71,8 +71,8 @@ shipyard/
     ├── index.html         download page (GitHub Pages)
     ├── icon.png           page logo
     ├── favicon.png        page favicon
-    ├── Nudge-2.0.0-{arm64,x64}.dmg   macOS installers (+ .sha256 each)
-    ├── Nudge-2.0.0-{arm64,x64}.exe   Windows installers (+ .sha256 each)
+    ├── Nudge-2.3.0-{arm64,x64}.dmg   macOS installers (+ .sha256 each)
+    ├── Nudge-2.3.0-{arm64,x64}.exe   Windows installers (+ .sha256 each)
     └── Nudge-1.0.0.{dmg,exe}         previous version (+ .sha256 each)
 ```
 
@@ -81,7 +81,7 @@ shipyard/
 1. Build the installers in the source project (`applications/nudge/build`): `make -C dmg` (macOS arm64 + x64) and `make -C exe` (Windows x64 + ARM64). They land in `applications/nudge/build/release/`.
 2. Copy them here with hyphenated names and write checksums:
    ```sh
-   R=../applications/nudge/build/release; V=2.0.0
+   R=../applications/nudge/build/release; V=2.3.0
    for a in arm64 x64; do
      cp $R/Nudge_${V}_$a.dmg nudge/Nudge-$V-$a.dmg
      cp $R/Nudge_${V}_$a.exe nudge/Nudge-$V-$a.exe
