@@ -36,13 +36,13 @@
   .pill.latest { color: var(--ok); border-color: var(--ok); }
   h2 { margin: 32px 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
   .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  table { width: 100%; border-collapse: collapse; min-width: 760px; }
   th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
   tr:last-child td { border-bottom: 0; }
   th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
   td.ver { font-weight: 700; white-space: nowrap; }
   td.ver .pill { margin-left: 6px; }
-  td.date, td.none { color: var(--muted); white-space: nowrap; }
+  td.none { color: var(--muted); white-space: nowrap; }
   a.dl { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600; padding: 6px 12px; border-radius: 8px; }
   a.dl small { font-weight: 500; opacity: .75; font-size: 11px; }
   a.dl:hover { filter: brightness(1.08); }
@@ -60,6 +60,22 @@
   .grid .card { padding: 14px 16px; }
   .grid h3 { margin: 0 0 4px; font-size: 14px; }
   .grid p { margin: 0; color: var(--muted); font-size: 13px; }
+  .dl-table { min-width: 680px; font-size: 14px; }
+  details.older { padding: 4px 16px 12px; }
+  details.older > .table-wrap { margin-top: 4px; }
+  details.sub { margin-top: 12px; background: var(--bg); }
+  .sums td { vertical-align: middle; }
+  .sums .nowrap { white-space: nowrap; }
+  .sums code { display: inline-block; max-width: 100%; word-break: break-all; }
+  button.copy { font: inherit; font-size: 12px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 3px 12px; cursor: pointer; white-space: nowrap; }
+  button.copy:hover { border-color: var(--accent); }
+  button.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .news h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .news h3 small { color: var(--muted); font-weight: 500; font-size: 12px; }
+  .news ul { margin: 6px 0 10px; padding-left: 1.1rem; color: var(--muted); font-size: 13px; }
+  .news li { margin-bottom: 4px; }
+  .news a.more { font-size: 13px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
   .chips li { background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: 13px; }
   .install { padding: 0 2px; }
@@ -79,7 +95,7 @@
 
 <header class="bar"><div class="in">
   <a class="brand" href="#top"><img src="favicon.png" alt="" width="22" height="22">Nudge</a>
-  <nav aria-label="Sections"><a href="#downloads">Downloads</a><a href="#features">Features</a><a href="#install">Install</a></nav>
+  <nav aria-label="Sections"><a href="#downloads">Downloads</a><a href="#whats-new">What&rsquo;s new</a><a href="#features">Features</a><a href="#install">Install</a></nav>
 </div></header>
 
 <main class="wrap" id="top">
@@ -93,49 +109,30 @@
   </section>
 
   <h2 id="downloads">Downloads</h2>
-  <div class="card table-wrap">
-    <table>
-      <thead><tr><th>Version</th><th>Date</th><th>macOS &middot; Apple Silicon</th><th>macOS &middot; Intel</th><th>Windows &middot; x64</th><th>Windows &middot; ARM64</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="ver">2.3.0 <span class="pill latest">Latest</span></td><td class="date">Nov 18, 2026</td>
-          <td><a class="dl" href="Nudge-2.3.0-arm64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.3.0-x64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.3.0-x64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td><td><a class="dl" href="Nudge-2.3.0-arm64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td>
-        </tr>
-        <tr class="old">
-          <td class="ver">2.2.0</td><td class="date">Oct 19, 2026</td>
-          <td><a class="dl" href="Nudge-2.2.0-arm64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.2.0-x64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.2.0-x64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td><td><a class="dl" href="Nudge-2.2.0-arm64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td>
-        </tr>
-        <tr class="old">
-          <td class="ver">2.1.0</td><td class="date">Oct 18, 2026</td>
-          <td><a class="dl" href="Nudge-2.1.0-arm64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.1.0-x64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.1.0-x64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td><td><a class="dl" href="Nudge-2.1.0-arm64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td>
-        </tr>
-        <tr class="old">
-          <td class="ver">2.0.0</td><td class="date">Oct 17, 2026</td>
-          <td><a class="dl" href="Nudge-2.0.0-arm64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.0.0-x64.dmg" download><span class="arrow">&darr;</span> .dmg<small>24 MB</small></a></td><td><a class="dl" href="Nudge-2.0.0-x64.exe" download><span class="arrow">&darr;</span> .exe<small>20 MB</small></a></td><td><a class="dl" href="Nudge-2.0.0-arm64.exe" download><span class="arrow">&darr;</span> .exe<small>19 MB</small></a></td>
-        </tr>
-        <tr class="old">
-          <td class="ver">1.0.0</td><td class="date">Oct 15, 2026</td>
-          <td><a class="dl" href="Nudge-1.0.0.dmg" download><span class="arrow">&darr;</span> .dmg<small>54 MB</small></a></td><td class="none">&mdash;</td><td><a class="dl" href="Nudge-1.0.0.exe" download><span class="arrow">&darr;</span> .exe<small>38 MB</small></a></td><td class="none">&mdash;</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div id="dl-main"></div>
   <p class="hint">Not sure which Mac you have? Apple menu &rsaquo; About This Mac: &ldquo;Apple M&hellip;&rdquo; is Apple Silicon, &ldquo;Intel&rdquo; is Intel. Requires macOS 11 or later, or Windows 10/11.</p>
+  <p class="hint">Older versions and SHA-256 checksums are at the <a href="#more-downloads">bottom of the page</a>.</p>
+  <noscript><p class="note">The download table needs JavaScript. Every version is listed, with links and checksums, in the <a href="https://github.com/veynora/shipyard/tree/main/nudge">Nudge folder on GitHub</a>.</p></noscript>
+  <span class="sr" id="copy-status" role="status" aria-live="polite"></span>
 
-  <details class="card">
-    <summary>SHA-256 checksums</summary>
-    <div class="table-wrap"><table><tbody><tr><td>Nudge-2.3.0-arm64.dmg</td><td><code>35006157f7701b5a110ba355b145c44a998c02441fa2fcfa977d72bef39080fb</code></td></tr><tr><td>Nudge-2.3.0-x64.dmg</td><td><code>b17d4d43d7978732281f0644b4982143958a1bcd788b91c2bf619cd2799cafbc</code></td></tr><tr><td>Nudge-2.3.0-x64.exe</td><td><code>9faeacefdc50b433cb6c1d278baf62d562c6be2a788f5aa76920e8f2754bd8ff</code></td></tr><tr><td>Nudge-2.3.0-arm64.exe</td><td><code>d8a218acf1bdea446e3a1b4c4bc5f368436179a256adeaeb64bee39fa0c5a819</code></td></tr><tr><td>Nudge-2.2.0-arm64.dmg</td><td><code>c8f9ed5825f189d2ae7e791a6890327659d18d5b64db096bd17bc7020da5bb4a</code></td></tr><tr><td>Nudge-2.2.0-x64.dmg</td><td><code>d9f67e491de1239e501f251f7afeb5262c837374c38775dfe5cf7b6489598202</code></td></tr><tr><td>Nudge-2.2.0-x64.exe</td><td><code>7854fdb4ccca2cd1ae14ce325f38f973b62e317bbece95a1c7be250cd13164d8</code></td></tr><tr><td>Nudge-2.2.0-arm64.exe</td><td><code>1691cbe138cbc45f3b8c2dd7b0e5cebaa097636e60ea397ac32bef33913c7ec4</code></td></tr><tr><td>Nudge-2.1.0-arm64.dmg</td><td><code>a547e53230171aabb3d2f28f36146fa89fa5a9f5112d6782fe9f9a3ea1ea49eb</code></td></tr><tr><td>Nudge-2.1.0-x64.dmg</td><td><code>12e8152fd14efd0ab8f40ebb9616926dfe48b74916e071c5b7dc0d30666a60a2</code></td></tr><tr><td>Nudge-2.1.0-x64.exe</td><td><code>393404d694cc68e1cfc7b6f2254dac6bef2f6444e7843d5d9cd6ae69077cd130</code></td></tr><tr><td>Nudge-2.1.0-arm64.exe</td><td><code>b3859ba2771c7b0111927f6d2d0295c718a064aa0c58e9de9d25d6c7c6b5c4ef</code></td></tr><tr><td>Nudge-2.0.0-arm64.dmg</td><td><code>30edeae6bf620eb58b879fc3aecbce9332066247d384fe80910027d3a5864421</code></td></tr><tr><td>Nudge-2.0.0-x64.dmg</td><td><code>64b3a735438424f4ce1b64303c09a91fb820a1407d46e0fb74fd94c5882d02d5</code></td></tr><tr><td>Nudge-2.0.0-x64.exe</td><td><code>f2e16d3becea962181ab691f8d37cc0ad6ab96bd0e804c933aa1d5d12cf1f419</code></td></tr><tr><td>Nudge-2.0.0-arm64.exe</td><td><code>08b7e7042350e24ed4c8c39ccc3a99f3ceaa76ba9d57f161ab45c8c64efcfb39</code></td></tr><tr><td>Nudge-1.0.0.dmg</td><td><code>39bebee3e57b20a86f43ddfc77053d16433e264650f586829bb2a6d959212b86</code></td></tr><tr><td>Nudge-1.0.0.exe</td><td><code>bc1889e8b133d2553642be24a3070bac28676d90dab03e72fe296f8009d78996</code></td></tr></tbody></table></div>
-    <p class="hint">Verify on macOS: <code>shasum -a 256 ~/Downloads/Nudge-2.3.0-arm64.dmg</code></p>
-    <p class="hint" style="margin-bottom:12px">Verify on Windows: <code>Get-FileHash $HOME\Downloads\Nudge-2.3.0-x64.exe -Algorithm SHA256</code></p>
-  </details>
+
+  <h2 id="whats-new">What&rsquo;s new</h2>
+  <div class="grid news">
+    <div class="card"><h3>2.3.0 <small>Nov 18, 2026</small></h3><ul><li>Reminders that fire together sit side by side, with &ldquo;+N waiting&rdquo; if the screen is full.</li><li>Reminders that fall due while your Mac is locked wait, then appear with their character when you&rsquo;re back.</li><li>The Robot is gone; Nova is the default character.</li></ul><a class="more" href="v2.3.0/release-notes.html">Release notes &rarr;</a></div>
+    <div class="card"><h3>2.2.0 <small>Oct 19, 2026</small></h3><ul><li>The popup opens on the screen your mouse is on, including a second monitor.</li><li>It is no longer hidden by the dashboard or a full-screen app on macOS.</li><li>If a popup can&rsquo;t be shown, the reminder card appears in the app instead.</li></ul><a class="more" href="v2.2.0/release-notes.html">Release notes &rarr;</a></div>
+    <div class="card"><h3>2.1.0 <small>Oct 18, 2026</small></h3><ul><li>Reminder templates, Skip (&ldquo;not this time&rdquo;), and editing any reminder.</li><li>Several calendars, each with several reminders per meeting.</li><li>A proper macOS menu bar, a Pause submenu and a Sync all button.</li></ul><a class="more" href="v2.1.0/release-notes.html">Release notes &rarr;</a></div>
+    <div class="card"><h3>2.0.0 <small>Oct 17, 2026</small></h3><ul><li>Rebuilt in Rust with a new Dashboard and a Light, Dark or Auto theme.</li><li>A Settings page, and eight characters.</li><li>Installers for Apple Silicon, Intel, Windows x64 and Windows ARM64.</li></ul><a class="more" href="v2.0.0/release-notes.html">Release notes &rarr;</a></div>
+  </div>
 
   <h2 id="features">What it does</h2>
   <div class="grid">
-    <div class="card"><h3>Appears where you are</h3><p>The reminder shows up on the screen you're working on, without stealing focus.</p></div>
-    <div class="card"><h3>One action to resolve</h3><p>Mark it done, snooze it, or just type "after lunch" or "friday 5pm" to reschedule in plain language.</p></div>
+    <div class="card"><h3>Appears where you are</h3><p>The reminder shows up on the screen you&rsquo;re working on, including a second monitor, without stealing focus. Several reminders sit side by side.</p></div>
+    <div class="card"><h3>One action to resolve</h3><p>Mark it done, snooze it, skip it (&ldquo;not this time&rdquo;), or just type &ldquo;after lunch&rdquo; or &ldquo;friday 5pm&rdquo; to reschedule in plain language.</p></div>
     <div class="card"><h3>Characters with personality</h3><p>Pick a character and a voice style (calm coach, sarcastic friend, sports commentator, movie hero). Reminders can be spoken aloud.</p></div>
-    <div class="card"><h3>Easy to add things</h3><p>Type a reminder in everyday words, set it to repeat, or paste a messy brain dump and let Nudge pull out the tasks and times.</p></div>
-    <div class="card"><h3>Calendar import</h3><p>Bring in events from Google Calendar or an ICS calendar link.</p></div>
+    <div class="card"><h3>Easy to add things</h3><p>Type a reminder in everyday words, start from a template (drink water, stretch, stand up&hellip;), set it to repeat, or paste a messy brain dump and let Nudge pull out the tasks and times. Edit any reminder later.</p></div>
+    <div class="card"><h3>Calendar import</h3><p>Bring in events from Google Calendar and any number of ICS calendar links, with several reminders per meeting (for example 1 day, 1 hour and 10 minutes before).</p></div>
+    <div class="card"><h3>A dashboard</h3><p>See what is due today, overdue, upcoming, done and skipped this week, in a Light, Dark or Auto theme. A weekly reflection looks back at your week.</p></div>
+    <div class="card"><h3>Priorities and pauses</h3><p>High-priority reminders come back every 2 minutes (up to 10 times) until you answer. Pause reminders for 30 minutes, 1 hour, 2 hours or until tomorrow from the menu bar.</p></div>
     <div class="card"><h3>Quiet and private</h3><p>Lives in the menu bar (Mac) or system tray (Windows), works offline, and keeps your reminders on your computer in <code>~/.nudge/</code> (<code>%USERPROFILE%\.nudge</code> on Windows).</p></div>
   </div>
 
@@ -168,8 +165,100 @@
     <p class="note"><strong>Your data</strong> is stored locally in <code>~/.nudge/</code> (<code>%USERPROFILE%\.nudge</code> on Windows). Delete that folder to remove everything.</p>
   </section>
 
+  <h2 id="more-downloads">Checksums &amp; older versions</h2>
+  <div id="dl-sums"></div>
+  <div id="dl-older"></div>
+
 </main>
 
 <footer><a href="https://github.com/veynora/shipyard">veynora/shipyard</a> &middot; Builds are published here.<br>Made by Majo Dencilin &middot; <a href="https://github.com/dencilin" target="_blank" rel="noopener noreferrer">GitHub</a> &middot; <a href="https://www.linkedin.com/in/majodencilin/" target="_blank" rel="noopener noreferrer">LinkedIn</a></footer>
+  <script>
+  // Release data: add one entry per release (any order; the date lives in the release notes). The page sorts by version, shows the newest
+  // MAIN_COUNT in the main table and puts the rest under "Older versions". Files live in v<version>/;
+  // a platform with no build is simply left out (shown as a dash).
+  const RELEASES = [
+      {"version": "1.0.0", "files": {"mac-arm64": {"name": "Nudge-1.0.0.dmg", "size": "54 MB", "sha256": "39bebee3e57b20a86f43ddfc77053d16433e264650f586829bb2a6d959212b86"}, "win-x64": {"name": "Nudge-1.0.0.exe", "size": "38 MB", "sha256": "bc1889e8b133d2553642be24a3070bac28676d90dab03e72fe296f8009d78996"}}},
+      {"version": "2.0.0", "files": {"mac-arm64": {"name": "Nudge-2.0.0-arm64.dmg", "size": "24 MB", "sha256": "30edeae6bf620eb58b879fc3aecbce9332066247d384fe80910027d3a5864421"}, "win-arm64": {"name": "Nudge-2.0.0-arm64.exe", "size": "19 MB", "sha256": "08b7e7042350e24ed4c8c39ccc3a99f3ceaa76ba9d57f161ab45c8c64efcfb39"}, "mac-x64": {"name": "Nudge-2.0.0-x64.dmg", "size": "24 MB", "sha256": "64b3a735438424f4ce1b64303c09a91fb820a1407d46e0fb74fd94c5882d02d5"}, "win-x64": {"name": "Nudge-2.0.0-x64.exe", "size": "20 MB", "sha256": "f2e16d3becea962181ab691f8d37cc0ad6ab96bd0e804c933aa1d5d12cf1f419"}}},
+      {"version": "2.1.0", "files": {"mac-arm64": {"name": "Nudge-2.1.0-arm64.dmg", "size": "24 MB", "sha256": "a547e53230171aabb3d2f28f36146fa89fa5a9f5112d6782fe9f9a3ea1ea49eb"}, "win-arm64": {"name": "Nudge-2.1.0-arm64.exe", "size": "20 MB", "sha256": "b3859ba2771c7b0111927f6d2d0295c718a064aa0c58e9de9d25d6c7c6b5c4ef"}, "mac-x64": {"name": "Nudge-2.1.0-x64.dmg", "size": "24 MB", "sha256": "12e8152fd14efd0ab8f40ebb9616926dfe48b74916e071c5b7dc0d30666a60a2"}, "win-x64": {"name": "Nudge-2.1.0-x64.exe", "size": "20 MB", "sha256": "393404d694cc68e1cfc7b6f2254dac6bef2f6444e7843d5d9cd6ae69077cd130"}}},
+      {"version": "2.2.0", "files": {"mac-arm64": {"name": "Nudge-2.2.0-arm64.dmg", "size": "24 MB", "sha256": "c8f9ed5825f189d2ae7e791a6890327659d18d5b64db096bd17bc7020da5bb4a"}, "win-arm64": {"name": "Nudge-2.2.0-arm64.exe", "size": "20 MB", "sha256": "1691cbe138cbc45f3b8c2dd7b0e5cebaa097636e60ea397ac32bef33913c7ec4"}, "mac-x64": {"name": "Nudge-2.2.0-x64.dmg", "size": "24 MB", "sha256": "d9f67e491de1239e501f251f7afeb5262c837374c38775dfe5cf7b6489598202"}, "win-x64": {"name": "Nudge-2.2.0-x64.exe", "size": "20 MB", "sha256": "7854fdb4ccca2cd1ae14ce325f38f973b62e317bbece95a1c7be250cd13164d8"}}},
+      {"version": "2.3.0", "files": {"mac-arm64": {"name": "Nudge-2.3.0-arm64.dmg", "size": "24 MB", "sha256": "35006157f7701b5a110ba355b145c44a998c02441fa2fcfa977d72bef39080fb"}, "win-arm64": {"name": "Nudge-2.3.0-arm64.exe", "size": "20 MB", "sha256": "d8a218acf1bdea446e3a1b4c4bc5f368436179a256adeaeb64bee39fa0c5a819"}, "mac-x64": {"name": "Nudge-2.3.0-x64.dmg", "size": "24 MB", "sha256": "b17d4d43d7978732281f0644b4982143958a1bcd788b91c2bf619cd2799cafbc"}, "win-x64": {"name": "Nudge-2.3.0-x64.exe", "size": "20 MB", "sha256": "9faeacefdc50b433cb6c1d278baf62d562c6be2a788f5aa76920e8f2754bd8ff"}}}
+    ];
+  const MAIN_COUNT = 3;
+  const PLATFORMS = [
+    ["mac-arm64", "macOS &middot; Apple Silicon", "macOS Apple Silicon"],
+    ["mac-x64", "macOS &middot; Intel", "macOS Intel"],
+    ["win-x64", "Windows &middot; x64", "Windows x64"],
+    ["win-arm64", "Windows &middot; ARM64", "Windows ARM64"]
+  ];
+  (function () {
+    var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); };
+    var parts = function (v) { return v.split(".").map(Number); };
+    var cmp = function (a, b) { var x = parts(a.version), y = parts(b.version); for (var i = 0; i < 3; i++) { if (x[i] !== y[i]) return y[i] - x[i]; } return 0; };
+    var ext = function (name) { return name.slice(name.lastIndexOf(".")); };
+
+    var rels = RELEASES.slice().sort(cmp);
+    var main = rels.slice(0, MAIN_COUNT), older = rels.slice(MAIN_COUNT);
+
+    function table(rows, withLatest) {
+      var h = '<div class="card table-wrap"><table class="dl-table"><thead><tr><th>Version</th>';
+      PLATFORMS.forEach(function (p) { h += "<th>" + p[1] + "</th>"; });
+      h += "<th>Release notes</th></tr></thead><tbody>";
+      rows.forEach(function (r, i) {
+        var latest = withLatest && i === 0;
+        h += "<tr" + (latest ? "" : ' class="old"') + '><td class="ver">' + esc(r.version) + (latest ? ' <span class="pill latest">Latest</span>' : "") + '</td>';
+        PLATFORMS.forEach(function (p) {
+          var f = r.files[p[0]];
+          h += f ? '<td><a class="dl" href="v' + esc(r.version) + "/" + esc(f.name) + '" download><span class="arrow">&darr;</span> ' + esc(ext(f.name)) + "<small>" + esc(f.size) + "</small></a></td>" : '<td class="none">&mdash;</td>';
+        });
+        h += '<td><a href="v' + esc(r.version) + '/release-notes.html">Notes</a></td></tr>';
+      });
+      return h + "</tbody></table></div>";
+    }
+
+    function sums(rows) {
+      var h = '<div class="table-wrap"><table class="sums"><thead><tr><th>Version &middot; platform</th><th>File</th><th>SHA-256</th><th><span class="sr">Copy</span></th></tr></thead><tbody>';
+      rows.forEach(function (r) {
+        PLATFORMS.forEach(function (p) {
+          var f = r.files[p[0]];
+          if (!f) return;
+          h += '<tr><td class="nowrap">' + esc(r.version) + " &middot; " + p[2] + "</td><td>" + esc(f.name) + "</td><td><code>" + esc(f.sha256) +
+            '</code></td><td><button type="button" class="copy" data-hash="' + esc(f.sha256) + '" aria-label="Copy SHA-256 for ' + esc(f.name) + '">Copy</button></td></tr>';
+        });
+      });
+      return h + "</tbody></table></div>";
+    }
+
+    var latest = main[0], mac = latest.files["mac-arm64"], win = latest.files["win-x64"];
+    document.getElementById("dl-main").innerHTML = table(main, true);
+    document.getElementById("dl-sums").innerHTML =
+      '<details class="card"><summary>SHA-256 checksums</summary>' + sums(main) +
+      (mac ? '<p class="hint">Verify on macOS: <code>shasum -a 256 ~/Downloads/' + esc(mac.name) + "</code></p>" : "") +
+      (win ? '<p class="hint" style="margin-bottom:12px">Verify on Windows: <code>Get-FileHash $HOME\\Downloads\\' + esc(win.name) + " -Algorithm SHA256</code></p>" : "") +
+      "</details>";
+    if (older.length) {
+      document.getElementById("dl-older").innerHTML =
+        '<details class="card older"><summary>Older versions (' + older.length + ")</summary>" + table(older, false).replace('<div class="card table-wrap">', '<div class="table-wrap">') +
+        '<details class="card sub"><summary>SHA-256 checksums for older versions</summary>' + sums(older) + "</details></details>";
+    }
+
+    function copyText(t) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+      return new Promise(function (ok, fail) {
+        var ta = document.createElement("textarea");
+        ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy") ? ok() : fail(); } catch (e) { fail(e); }
+        document.body.removeChild(ta);
+      });
+    }
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("button.copy");
+      if (!b) return;
+      var label = b.textContent, status = document.getElementById("copy-status");
+      copyText(b.getAttribute("data-hash")).then(function () { b.textContent = "Copied"; status.textContent = "SHA-256 copied"; }, function () { b.textContent = "Failed"; status.textContent = "Copy failed"; });
+      setTimeout(function () { b.textContent = label; status.textContent = ""; }, 1600);
+    });
+  })();
+  </script>
 </body>
 </html>
