@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Nudge v2.1.0 — templates, Skip, multiple calendars, macOS menu bar</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<meta name="description" content="Release notes: Nudge v2.1.0 — templates, Skip, multiple calendars, macOS menu bar">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #17181b; --panel: #202226; --ink: #ececec; --muted: #9aa0aa; --line: #34363c;
+    --accent: #8b8cf4; --bar: #101223; --bar-ink: #e8ebf5; --code: #17181b; --hi: 255,255,255;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .bar { background: var(--bar); color: var(--bar-ink); position: sticky; top: 0; z-index: 5; }
+  .bar .in { max-width: 760px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; color: var(--bar-ink); text-decoration: none; }
+  .brand img { width: 22px; height: 22px; border-radius: 6px; }
+  .bar nav { margin-left: auto; }
+  .bar nav a { color: var(--bar-ink); text-decoration: none; padding: 6px 10px; border-radius: 8px; opacity: .8; }
+  .bar nav a:hover { background: rgba(var(--hi),.08); opacity: 1; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 8px 16px 56px; }
+  h1 { margin: 24px 0 6px; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.2; letter-spacing: -.01em; }
+  h2 { margin: 32px 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  h3 { margin: 20px 0 6px; font-size: 15px; }
+  p { margin: 0 0 12px; }
+  p.meta { color: var(--muted); font-size: 13px; }
+  ul, ol { margin: 0 0 12px; padding-left: 1.3rem; }
+  li { margin-bottom: 8px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 12px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+  code, pre { background: var(--code); border: 1px solid var(--line); border-radius: 6px; font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+  code { padding: 1px 6px; overflow-wrap: anywhere; }
+  pre { padding: 10px 12px; overflow-x: auto; margin: 8px 0 12px; }
+  footer { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; color: var(--muted); font-size: 12px; text-align: center; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header class="bar"><div class="in">
+  <a class="brand" href="../index.html"><img src="../favicon.png" alt="" width="22" height="22">Nudge</a>
+  <nav aria-label="Navigation"><a href="../index.html#downloads">&larr; All downloads</a></nav>
+</div></header>
+<main class="wrap">
+<h1>Nudge v2.1.0 — templates, Skip, multiple calendars, macOS menu bar</h1>
+<p class="meta"><strong>Released:</strong> 2026-10-18 · <strong>Source:</strong> <code>app/</code> (Rust + Tauri 2) · <strong>Platforms:</strong> macOS (Apple Silicon, Intel), Windows 10/11 (x64, ARM64)</p>
+<p>v2.1.0 makes reminders quicker to create and easier to manage: start from a template, edit any reminder, skip one you don&#x27;t want, and pull in several calendars. On macOS the app now has a proper menu bar. Your data from v2.0.0 carries over unchanged.</p>
+<h2>Highlights</h2>
+<ul><li><strong>Reminder templates.</strong> The New reminder form has a &quot;Start from a template&quot; row: Drink water, Stretch break, Stand up, Take medicine, Wind down, Review my day. A click fills the task, repeat, priority and say-it-out-loud; you pick the time. Built-in only (no saved templates yet).</li><li><strong>Skip.</strong> A &quot;not this time&quot; answer that does not mark the reminder done and does not snooze it. A repeating reminder moves to its next time; a one-off is finished, and a calendar sync will not bring it back. Skip is in the popup (next to &quot;Ignore for now&quot;), on the due card, and in the Reminders table and dashboard list.</li><li><strong>Dashboard tiles.</strong> New &quot;Done (7 days)&quot; and &quot;Skipped (7 days)&quot; tiles beside Due today, Overdue, Upcoming and Snoozed 3+. Skips never count as done or in the weekly reflection.</li><li><strong>Edit any reminder.</strong> Click a reminder (or Edit) to change its task, time, repeat, priority or speak setting, including calendar reminders. New and Edit share one centered popup with a date and time picker.</li><li><strong>Multiple calendars.</strong> Integrations is now a list: any number of iCal links plus Google, each with its own name, remind-before times (for example 1 day, 1 hour, 10 minutes, at the start), all-day time, speak, look-ahead and add-to-calendar. Spoken reminders say how long is left.</li><li><strong>macOS menu bar.</strong> While the main window is open Nudge is a regular app with a Dock icon and its own menus (Nudge, Edit, View, Window, Help), so ⌘, opens Settings and ⌘C / ⌘V work in text fields. The green button zooms the window and keeps the menu bar; full screen is under View. Closing the window returns Nudge to the menu bar only (unless &quot;Show in Dock&quot; is on).</li><li><strong>Cancel and Delete work again.</strong> Cancel, ✕, Esc and Delete did nothing when a form had changes, because the webview has no native confirm box. They now use an in-app dialog (Discard / Keep editing, Delete / Cancel).</li></ul>
+<h2>What else changed</h2>
+<ul><li>Reminders page: one filter row with a multi-select Source dropdown, a calendar status link, &quot;+ New reminder&quot; and &quot;Brain dump&quot; (now a dialog). The Calendar and Brain dump pages are gone; calendar setup moved to Integrations.</li><li>Top bar: labelled &quot;⟳ Sync all&quot; button with progress (&quot;Syncing…&quot;, &quot;Synced ✓&quot;, &quot;Sync failed&quot;), and a &quot;Quick reminder&quot; button. The bar clears the title bar and notch area in every window state.</li><li>Menu bar menu reorganised, with a Pause reminders submenu (30 minutes, 1 hour, 2 hours, Until tomorrow).</li><li>Settings defaults (character, voice, priority) are dropdowns.</li><li>Fixed: the Windows exe, shortcuts and installer showed a generic or blurry icon; they now carry the full Nudge icon (16 to 256 px), the same artwork as the Mac icon. The Mac DMG volume shows the Nudge icon.</li><li>Fixed: reopening Settings lost the Google Calendar box; the tray &quot;Add reminder…&quot; fallback now opens New reminder; screen readers now get button labels.</li><li>Removed: the per-reminder Preview button (it fired the real reminder early).</li></ul>
+<h2>Downloads</h2>
+<div class="card table-wrap"><table><thead><tr><th>Platform</th><th>File</th><th>Notes</th></tr></thead><tbody><tr><td>macOS 11+, Apple Silicon</td><td><code>Nudge-2.1.0-arm64.dmg</code></td><td>Ad-hoc signed, not notarized: right-click &gt; Open the first time.</td></tr><tr><td>macOS 11+, Intel</td><td><code>Nudge-2.1.0-x64.dmg</code></td><td>Same as above.</td></tr><tr><td>Windows 10/11, x64</td><td><code>Nudge-2.1.0-x64.exe</code></td><td>Unsigned: SmartScreen shows &quot;More info &gt; Run anyway&quot;. Installs per user; downloads WebView2 if missing.</td></tr><tr><td>Windows 10/11, ARM64</td><td><code>Nudge-2.1.0-arm64.exe</code></td><td>Same as above.</td></tr></tbody></table></div>
+<p>Each file has a <code>.sha256</code> checksum. Download page: <a href="https://veynora.github.io/shipyard/nudge/" target="_blank" rel="noopener noreferrer">https://veynora.github.io/shipyard/nudge/</a>.</p>
+<h2>Your data</h2>
+<p>Same as v2.0.0: <code>~/.nudge/</code> (<code>%USERPROFILE%\.nudge</code> on Windows) with <code>reminders.db</code>, <code>.env</code>, <code>nudge.log</code> and Google sign-in; override with <code>NUDGE_HOME</code>. No schema change: skipped reminders are stored as rows with status <code>skipped</code> in the existing table, so v2.0.0 and the Python prototype ignore them. Existing single-link calendar settings migrate to the new calendar list automatically.</p>
+<h2>Known limitations</h2>
+<ul><li><strong>Not tested on Windows.</strong> The installers are cross-compiled on a Mac and were not installed or run on Windows.</li><li><strong>Not tested on an Intel Mac</strong>, and the DMGs were not mounted and launched on another Mac.</li><li><strong>Icons not checked on a real Windows machine</strong> (clean install: setup, shortcuts, taskbar, Apps list) or in Finder/Dock/Launchpad. The build scripts verify the icon files and resources only.</li><li><strong>Not checked by eye on macOS:</strong> the new menu bar, zoom and full-screen behaviour, the top bar in every window state, the extra Skip button in the popup, and the six dashboard tiles in light and dark themes at narrow widths. The code and automated tests (Rust, and the UI smoke test with a mocked backend) pass.</li><li>The top-bar clipping in full screen was fixed from a likely cause (the bar sat under the revealed menu bar or notch area); it was not reproduced.</li><li>Templates are built-in only; there is no way to save your own. The popup&#x27;s New reminder wizard has no template row.</li><li>No custom characters, no auto-update, no Developer ID signing or notarization, no Windows code signing, and the Anthropic API key is still stored in plaintext in <code>~/.nudge/.env</code>. Linux and mobile are not built.</li></ul>
+</main>
+<footer><a href="../index.html">Nudge downloads</a> &middot; <a href="https://github.com/veynora/shipyard" target="_blank" rel="noopener noreferrer">veynora/shipyard</a></footer>
+</body>
+</html>
